@@ -1,0 +1,144 @@
+body {
+    background: #fff;
+    color: black;
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 494px;
+    margin:10px auto;
+}
+
+
+
+h3 {
+
+    font-weight: normal;
+    font-size: 18px;
+    border-bottom: 2px solid black;
+    padding: 3px 0;
+    margin: 0 0 24px 0;
+
+}
+
+h4 {
+    font-weight: normal;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+h4::after {
+
+    content: "";
+    display: inline-block;
+    width: 440px;
+    height: 3px;
+    border-top: 1px dotted #000;
+    margin-left: 10px;
+
+}
+
+#new-hobby {
+    width: 218px;
+    height: 20px;
+    margin-left: 18px;
+    padding-left: 4px;
+    margin-bottom: 9px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+
+}
+
+li {
+    list-style: none;
+    font-size: 12px;
+    margin-top: 8px;;
+}
+
+li:last-child {
+    margin-bottom: 30px;
+}
+
+
+
+button {
+    border: none;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin: 1px;
+    visibility: hidden;
+}
+
+li:hover button {
+    visibility: visible;
+}
+
+.delete {
+    background: url("image/close.png") no-repeat center 0;
+}
+
+.add {
+    background: url("image/add.gif") no-repeat center 0;
+}
+
+.complain {
+    background: url("image/warn.png") no-repeat center 0;
+    position: relative;
+}
+
+.complain::after {
+    position: absolute;
+    content: "пожаловаться";
+    padding-left: 15px;
+    font-size: 12px;
+    bottom: 2px;
+}
+
+.ok {
+    background: url("image/ok.png") no-repeat center 0;
+    position: relative;
+    display: none;
+}
+
+.ok::after {
+    position: absolute;
+    content: "добавлено в ваши увлечения";
+    padding-left: 15px;
+    font-size: 10px;
+    bottom: 2px;
+    color: green;
+}
+
+.my_hobby_text,
+.fr_hobby_text {
+    display: inline-block;
+    cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 5px;
+    width: 460px;
+    position: relative;
+    margin-left: 5px;
+}
+
+.fr_hobby_text {
+    width: 360px;
+    margin-right: 10px;
+}
+
+.my_hobby_text:after,
+.fr_hobby_text::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), #ffffff 100%);
+}
+
