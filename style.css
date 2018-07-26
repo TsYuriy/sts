@@ -191,7 +191,8 @@ form {
 
 .submit:active {
     position: relative;
-    border-bottom-color: transparent;
+    top: 1px;
+    left: 1px;
 
 
 }
