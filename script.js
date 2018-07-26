@@ -11,9 +11,9 @@ div.appendChild(img);
 div.innerHTML = '<img class="ok" src="image/ok.png" alt="">добавлено в ваши увлечения';
 
 var form = document.createElement("form");
-// form.method = "post";
 
-form.innerHTML = '<fieldset><legend>Форма обратной связи</legend><div class="form-group"><label>Имя: <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ваше имя"></label></div><div class="form-group"><label>Email: <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="name@mail.com"></label></div><div class="form-group-textarea"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="55" placeholder="Ваше обращение"></textarea></div><button class="submit" type="submit">Отправить</button></fieldset>';
+
+form.innerHTML = '<fieldset><legend>Форма обратной связи</legend><div class="form-group"><label>Имя: <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ваше имя"></label></div><div class="form-group"><label>Email: <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="name@mail.com"></label></div><div class="form-group-textarea"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="55" placeholder="Ваше обращение"></textarea></div><div class="submit">Отправить</div></fieldset>';
 
 
 function createClickEvent() {
@@ -65,17 +65,30 @@ function createClickComplain() {
     elements.forEach(function(el) {
         el.addEventListener('click', function() {
             var li = this.parentNode;
-            var ul = li.parentNode;
-            console.log(ul);
+
+
             li.appendChild(form);
             li.querySelector("button.add").style.visibility = "hidden";
             li.querySelector('button.complain').style.visibility = "hidden";
+            var submit = document.querySelector('div.submit');
+            submit.onclick = function( ){
+                var fieldSet = this.parentNode;
+                var formOpen = fieldSet.parentNode;
+                li.removeChild(formOpen);
+                alert('обращение отправлено');
+                li.querySelector("button.add").style.visibility = "visible";
+                li.querySelector('button.complain').style.visibility = "visible";
+
+            };
 
         });
     });
 }
 
+
 function createNewElement(task) {
+
+
 
     var listItem = document.createElement('li');
     var label = document.createElement('label');
@@ -139,7 +152,8 @@ for (var g = 0; g < myHobbysTextArr.length;  g++){
 function addTask(e) {
     if (e.keyCode === 13 && inputHobby.value) {
         var listItem = createNewElement(inputHobby.value);
-        myHobbys.insertBefore(listItem, myHobbys.children[0]);
+        // myHobbys.insertBefore(listItem, myHobbys.children[0]);
+        myHobbys.appendChild(listItem);
         bindTaskEvents(listItem);
     }
 
@@ -165,6 +179,10 @@ function bindTaskEvents(listItem) {
 
 
 
+
 createClickAdd();
 createClickEvent();
 createClickComplain();
+
+
+

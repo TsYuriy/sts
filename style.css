@@ -177,15 +177,21 @@ form {
 }
 
 .submit {
-
+    cursor: pointer;
     visibility: visible;
-
+    text-align: center;
     width: 100px;
     height: 30px;
     border-radius: 3px;
     border: inherit;
+    line-height: 30px;
+    background-color: rgb(240, 239, 239);
+
 }
 
 .submit:active {
-    border: inset;
+    position: relative;
+    border-bottom-color: transparent;
+
+
 }
